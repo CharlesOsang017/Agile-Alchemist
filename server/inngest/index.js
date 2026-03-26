@@ -1,5 +1,5 @@
 import { Inngest } from "inngest";
-import prismaConfig from "../configs/prisma.config";
+import prismaConfig from "../configs/prisma.config.js";
 
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "agile-alchemist" });
