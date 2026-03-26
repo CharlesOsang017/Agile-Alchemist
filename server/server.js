@@ -1,11 +1,11 @@
 import express from 'express'
-import dotenv from 'dotenv/config'
+import dotenv from 'dotenv'
 import cors from 'cors'
 import { clerkMiddleware } from '@clerk/express'
 import { serve } from "inngest/express";
 import { inngest, functions } from "./inngest/index.js"
 
-
+dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 5000
