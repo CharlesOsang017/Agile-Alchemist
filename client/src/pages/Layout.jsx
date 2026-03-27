@@ -19,11 +19,6 @@ const Layout = () => {
     // Initial load of theme
     useEffect(() => {
         dispatch(loadTheme())
- const logToken = async () => {
-            const token = await getToken()
-            console.log("Token: ", token)
-        }
-        logToken()
     }, [])
 
 
