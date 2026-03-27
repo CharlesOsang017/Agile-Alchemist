@@ -6,6 +6,7 @@ import { serve } from "inngest/express";
 import { inngest, functions } from "./inngest/index.js"
 import workspaceRoutes from "./routes/workspace.routes.js"
 import { protect } from './middlewares/auth.middleware.js';
+import projectRoutes from "./routes/project.route.js"
 
 dotenv.config()
 
@@ -25,6 +26,8 @@ app.get('/', (req, res) => {
 })
 
 app.use("/api/workspaces", protect, workspaceRoutes);
+app.use("/api/projects", protect, projectRoutes);
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
