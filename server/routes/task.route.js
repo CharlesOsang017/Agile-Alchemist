@@ -1,5 +1,5 @@
 import express from "express";
-import {} from "../middlewares/auth.middleware.js";
+import { createTask, deleteTask, updateTask } from "../controllers/task.controller.js";
 
 const router = express.Router()
 
