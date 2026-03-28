@@ -1,3 +1,5 @@
+import { prisma } from "../db.js";
+
 // Create Project
 export const createProject = async (req, res) => {
   try {

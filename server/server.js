@@ -7,6 +7,9 @@ import { inngest, functions } from "./inngest/index.js"
 import workspaceRoutes from "./routes/workspace.routes.js"
 import { protect } from './middlewares/auth.middleware.js';
 import projectRoutes from "./routes/project.route.js"
+import taskRoutes from "./routes/task.route.js"
+import commentRoutes from "./routes/comments.route.js"
+
 
 dotenv.config()
 
@@ -27,6 +30,8 @@ app.get('/', (req, res) => {
 
 app.use("/api/workspaces", protect, workspaceRoutes);
 app.use("/api/projects", protect, projectRoutes);
+app.use("/api/tasks", protect, taskRoutes);
+app.use("/api/comments", protect, commentRoutes);
 
 
 app.listen(PORT, () => {
