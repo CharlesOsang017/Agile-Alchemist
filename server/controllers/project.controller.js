@@ -105,6 +105,7 @@ export const updateProject = async (req, res) => {
   try {
     const { userId } = await req.auth();
     const {
+      id,
       workspaceId,
       description,
       name,
@@ -172,7 +173,7 @@ export const addMember = async (req, res) => {
   try {
     const { userId } = await req.auth();
     const { projectId} = req.params;
-    const {memberId} = req.body;
+    const {email} = req.body;
 
     // Check if user is project lead
     const project = await prisma.project.findUnique({
@@ -187,13 +188,13 @@ export const addMember = async (req, res) => {
     }
 
     // Check if user is already a member
-    const existingMember = project.members.find((member) => member.userId === memberId)
+    const existingMember = project.members.find((member) => member.email === email)
     if(existingMember){
         return res.status(400).json({message: "User is already a member of this project"})
     }
 
     const user = await prisma.user.findUnique({
-        where: {email: memberEmail}
+        where: {email}
     })
     if(!user){
         return res.status(404).json({message: "User not found"})
